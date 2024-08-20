@@ -56,6 +56,13 @@ main {
 		}
 	}
 }
+.circle {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	border: 15px solid blue;
+	box-sizing: border-box;
+}
 
 footer {
 	height: 80px;

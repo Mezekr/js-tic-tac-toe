@@ -7,8 +7,12 @@ const startCells = ['', '', '', '', '', '', '', '', ''];
 const createGameBoard = () => {
 	startCells.forEach((cell, index) => {
 		const gameCell = document.createElement('div');
+		const circleElement = document.createElement('div');
+
 		gameCell.classList.add('cell-element');
-		gameCell.innerText = index;
+		circleElement.classList.add('circle');
+
+		gameCell.append(circleElement);
 		gameBoard.append(gameCell);
 	});
 };
