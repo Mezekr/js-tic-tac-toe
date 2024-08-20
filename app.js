@@ -1,22 +1,27 @@
 const gameBoard = document.querySelector('#game-board');
 const infoDisplay = document.querySelector('#game-info');
 const startCells = ['', '', '', '', '', '', '', '', ''];
+let go = 'circle';
 
 // gameBoard.textContent = 'Here will be the game Board';
+infoDisplay.textContent = 'Circle goes first';
 
 const createGameBoard = () => {
-	startCells.forEach((cell, index) => {
+	startCells.forEach((_cell, index) => {
 		const gameCell = document.createElement('div');
-		const circleElement = document.createElement('div');
-
 		gameCell.classList.add('cell-element');
-		circleElement.classList.add('cross');
-
-		gameCell.append(circleElement);
+		gameCell.id = index;
+		gameCell.addEventListener('click', addGo);
 		gameBoard.append(gameCell);
 	});
 };
+const addGo = (e) => {
+	const goDislay = document.createElement('div');
+	goDislay.classList.add(go);
+	e.target.append(goDislay);
+	go = go === 'circle' ? 'cross' : 'circle';
+	infoDisplay.textContent = `Now is turn for ${go.toUpperCase()}!`;
+	e.target.removeEventListener('click', addGo);
+};
 
 createGameBoard();
-
-infoDisplay.textContent = 'Circle goes first';
