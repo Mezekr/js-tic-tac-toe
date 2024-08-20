@@ -10,7 +10,7 @@ const createGameBoard = () => {
 		const circleElement = document.createElement('div');
 
 		gameCell.classList.add('cell-element');
-		circleElement.classList.add('circle');
+		circleElement.classList.add('cross');
 
 		gameCell.append(circleElement);
 		gameBoard.append(gameCell);
